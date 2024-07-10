@@ -1,1 +1,1 @@
-# Predicting-ADHD-through-Eye-Gaze-A-Machine-Learning-Approach
+# Predicting-ADHD-through-Eye-Gaze:A-Machine-Learning-Approach
