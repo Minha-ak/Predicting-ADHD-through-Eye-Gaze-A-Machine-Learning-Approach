@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intermediate Page</title>
+</head>
+<body>
+    <div class="container">
+    <h2>Questionnaire Completed</h2>
+    <p>{{ message }}</p>
+    
+    <div id="testContent" style="display: none;">
+        <p><h1>Read the passage given below.</h1></p>
+        <p><h3>The Solar System</h3>
+
+            The Solar System is composed of the Sun and the objects that orbit it, including eight planets and their moons, dwarf planets, and countless smaller objects like asteroids and comets. The planets are divided into two categories based on their composition: terrestrial planets and gas giants. Terrestrial planets, which include Mercury, Venus, Earth, and Mars, are made primarily of rock and metal. Gas giants, which include Jupiter, Saturn, Uranus, and Neptune, are composed mainly of hydrogen and helium and lack a solid surface.
+        </p><p>    
+            The asteroid belt, which lies between the orbits of Mars and Jupiter, is home to many rocky bodies that never formed into planets. Beyond Neptune lies the Kuiper Belt, a region filled with icy bodies and dwarf planets like Pluto. The Solar System also contains the Oort Cloud, a distant area populated by icy comets that can be influenced by the gravitational pull of nearby stars.
+        </p>
+    </div>
+    
+    <button class = "button" id = "startTest" onclick="startTest()">Start Test</button>
+    <button class = "button" id = "endTest" onclick = "endTest()">End Test</button>
+</div>
+    <script>
+        function startTest() {
+            document.getElementById('testContent').style.display = 'block';
+            document.getElementById("endTest").style.display = "flex";
+            document.getElementById("startTest").style.display = "none";
+
+            fetch("/start_gaze").then((response)=>{
+                console.log(response)
+            })
+
+        }
+
+        function endTest(){
+            fetch("/stop_gaze").then(response=>{
+                if (response.status == 200){
+                    console.log("test ended");
+                    document.location.pathname = "/result"
+                }
+            })
+
+            
+        }
+
+    </script>
+
+    
+
+    <style>
+
+        #endTest{
+            display: none;
+        }
+        #startTest{
+            display: flex;
+        }
+
+        *{
+            font-family: sans-serif;
+        }
+
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container{
+            background-color: white;
+            padding: 40px;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            width: 50vw;
+            align-items: center;
+            min-height: 40vh;
+            justify-content: center;
+        }
+
+        .button{
+
+            background-color: blue;
+            color: white;
+            padding: 10px 20px;
+            border: 0px;
+            transition: 0.2s;
+
+        }
+
+        .button:hover{
+            background-color: rgb(46, 46, 240);
+        }
+
+    </style>
+
+</body>
+</html>

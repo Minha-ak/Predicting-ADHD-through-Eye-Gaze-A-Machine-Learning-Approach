@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADHD Assessment Questionnaire</title>
+    <!-- <link rel="stylesheet" href="..\quest.css"> -->
+</head>
+
+<body>
+    <div class="container">
+        <div class="top">
+            <h1 class="main_heading">ADHD Assessment Questionnaire</h1>
+            <div class="buttons">
+                <button id="startBtn" class="btn">Get Started</button>
+            </div>
+        </div>
+
+
+        <div id="questionnaire">
+            <!-- Placeholder for the questionnaire content -->
+        </div>
+
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Function to handle when the start button is clicked
+            document.getElementById("startBtn").addEventListener("click", function () {
+                showQuestionnaire();
+            });
+
+            // Function to display the questionnaire
+            function showQuestionnaire() {
+                var questionnaireDiv = document.getElementById("questionnaire");
+                var questions = "<h2>Questionnaire</h2>" +
+                    "<form id='questionnaireForm' action = '/submit' method = 'POST'>" +
+                    "<div class='question'>" +
+                    "<p>1. How often do you have difficulty getting things in order when you have to do a task that requires organisation?</p>" +
+                    "<label><input type='radio' name='q1' value='never'> Never</label>" +
+                    "<label><input type='radio' name='q1' value='rarely'> Rarely</label>" +
+                    "<label><input type='radio' name='q1' value='sometimes'> Sometimes</label>" +
+                    "<label><input type='radio' name='q1' value='often'> Often</label>" +
+                    "</div>" +
+                    "<div class='question'>" +
+                    "<p>2.  How often do you have problems remembering appointments or obligations?</p>" +
+                    "<label><input type='radio' name='q2' value='never'> Never</label>" +
+                    "<label><input type='radio' name='q2' value='rarely'> Rarely</label>" +
+                    "<label><input type='radio' name='q2' value='sometimes'> Sometimes</label>" +
+                    "<label><input type='radio' name='q2' value='often'> Often</label>" +
+                    "</div>" +
+                    "<div class='question'>" +
+                    "<p>3. How often do you fidget or squirm with your hands or feet when you have to sit down for a long time? </p>" +
+                    "<label><input type='radio' name='q3' value='never'> Never</label>" +
+                    "<label><input type='radio' name='q3' value='rarely'> Rarely</label>" +
+                    "<label><input type='radio' name='q3' value='sometimes'> Sometimes</label>" +
+                    "<label><input type='radio' name='q3' value='often'> Often</label>" +
+                    "</div>" +
+                    "<div class='question'>" +
+                    "<p>4. How often do you feel overly active and compelled to do things, like you were driven by a motor?</p>" +
+                    "<label><input type='radio' name='q4' value='never'> Never</label>" +
+                    "<label><input type='radio' name='q4' value='rarely'> Rarely</label>" +
+                    "<label><input type='radio' name='q4' value='sometimes'> Sometimes</label>" +
+                    "<label><input type='radio' name='q4' value='often'> Often</label>" +
+                    "</div>" +
+                    "<div class='question'>" +
+                    "<p>5. How often do you make careless mistakes when you have to work on a boring or difficult project? </p>" +
+                    "<label><input type='radio' name='q5' value='never'> Never</label>" +
+                    "<label><input type='radio' name='q5' value='rarely'> Rarely</label>" +
+                    "<label><input type='radio' name='q5' value='sometimes'> Sometimes</label>" +
+                    "<label><input type='radio' name='q5' value='often'> Often</label>" +
+                    "</div>" +
+                    "<div class='question'>" +
+                    "<p>6. How often is your child easily distracted by external stimuli, like something in their environment such as a noise or another conversation?</p>" +
+                    "<label><input type='radio' name='q6' value='never'> Never</label>" +
+                    "<label><input type='radio' name='q6' value='rarely'> Rarely</label>" +
+                    "<label><input type='radio' name='q6' value='sometimes'> Sometimes</label>" +
+                    "<label><input type='radio' name='q6' value='often'> Often</label>" +
+                    "</div>" +
+                    "<div class='question'>" +
+                    "<p>7.  How often do you have difficulty keeping your attention when you are doing boring or repetitive work?</p>" +
+                    "<label><input type='radio' name='q7' value='never'> Never</label>" +
+                    "<label><input type='radio' name='q7' value='rarely'> Rarely</label>" +
+                    "<label><input type='radio' name='q7' value='sometimes'> Sometimes</label>" +
+                    "<label><input type='radio' name='q7' value='often'> Often</label>" +
+                    "</div>" +
+                    "<div class='question'>" +
+                    "<p>8. How often do you have difficulty concentrating on what people say to you, even when they are speaking to you directly?</p>" +
+                    "<label><input type='radio' name='q8' value='never'> Never</label>" +
+                    "<label><input type='radio' name='q8' value='rarely'> Rarely</label>" +
+                    "<label><input type='radio' name='q8' value='sometimes'> Sometimes</label>" +
+                    "<label><input type='radio' name='q8' value='often'> Often</label>" +
+                    "</div>" +
+                    "<div class='question'>" +
+                    "<p>9. How often do you misplace or have difficulty finding things at home or at work?</p>" +
+                    "<label><input type='radio' name='q9' value='never'> Never</label>" +
+                    "<label><input type='radio' name='q9' value='rarely'> Rarely</label>" +
+                    "<label><input type='radio' name='q9' value='sometimes'> Sometimes</label>" +
+                    "<label><input type='radio' name='q9' value='often'> Often</label>" +
+                    "</div>" +
+                    "<div class='question'>" +
+                    "<p>10. How often do you leave your seat in meetings or other situations in which you are expected to remain seated?</p>" +
+                    "<label><input type='radio' name='q10' value='never'> Never</label>" +
+                    "<label><input type='radio' name='q10' value='rarely'> Rarely</label>" +
+                    "<label><input type='radio' name='q10' value='sometimes'> Sometimes</label>" +
+                    "<label><input type='radio' name='q10' value='often'> Often</label>" +
+                    "</div>" +
+                    "<div class='question'>" +
+                    "<p>11.  How often do you feel restless or fidgety?</p>" +
+                    "<label><input type='radio' name='q11' value='never'> Never</label>" +
+                    "<label><input type='radio' name='q11' value='rarely'> Rarely</label>" +
+                    "<label><input type='radio' name='q11' value='sometimes'> Sometimes</label>" +
+                    "<label><input type='radio' name='q11' value='often'> Often</label>" +
+                    "</div>" +
+                    "<div class='question'>" +
+                    "<p>12.How often do you have difficulty unwinding and relaxing when you have time to yourself?</p>" +
+                    "<label><input type='radio' name='q12' value='never'> Never</label>" +
+                    "<label><input type='radio' name='q12' value='rarely'> Rarely</label>" +
+                    "<label><input type='radio' name='q12' value='sometimes'> Sometimes</label>" +
+                    "<label><input type='radio' name='q12' value='often'> Often</label>" +
+                    "</div>" +
+                    "<div class='question'>" +
+                    "<p>13.  When you are in a conversation, how often do you find yourself finishing the sentences of the people you are talking to, before they can finish them themselves?</p>" +
+                    "<label><input type='radio' name='q13' value='never'> Never</label>" +
+                    "<label><input type='radio' name='q13' value='rarely'> Rarely</label>" +
+                    "<label><input type='radio' name='q13' value='sometimes'> Sometimes</label>" +
+                    "<label><input type='radio' name='q13' value='often'> Often</label>" +
+                    "</div>" +
+
+                    "<button id  = 'submit' type='submit'>Submit</button>"
+                // Add more questions here
+                "</form>";
+
+                questionnaireDiv.innerHTML = questions;
+                questionnaireDiv.style.display = "flex"; // Show the questionnaire section
+            }
+            function submitForm() {
+                var form = document.getElementById("questionnaireForm");
+                form.submit();
+            }
+        });
+    </script>
+
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+
+
+        .container {
+            width: 60vw;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main_heading {
+            text-align: center;
+        }
+
+        .main {
+            /* border: 1px solid black; */
+            padding: 20px;
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border: 1px solid rgb(222, 222, 222);
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            /* display: none; */
+        }
+
+        #questionnaire {
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            /* width: 60vw; */
+            width: 100%;
+            display: none;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            border: 1px solid rgb(222, 222, 222);
+
+            margin-top: 20px;
+
+
+        }
+
+        #startBtn {
+            background-color: blue;
+            color: white;
+            padding: 10px 20px;
+            border: 0px;
+            font-size: 13px;
+            transition: 0.2s;
+
+        }
+
+        #startBtn:hover {
+            background-color: rgb(54, 54, 255);
+
+        }
+
+        .top {
+            border: 1px solid rgb(222, 222, 222);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 20px;
+            margin-top: 40px;
+            width: 100%;
+            padding-bottom: 100px;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        }
+
+        .question{
+            padding: 20px;
+        }
+
+        .question label{
+            margin-right: 20px;
+        }
+
+        #submit{
+            background-color: blue;
+            color: white;
+            padding: 10px 20px;
+            border: 0px;
+            font-size: 13px;
+            transition: 0.2s;
+            margin-left: 20px;
+            margin-top: 30px;
+           
+            
+        }
+
+        #submit:hover{
+            background-color: rgb(54, 54, 255);
+        }
+
+    </style>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADHD Assessment Result</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>ADHD Assessment Result</h1>
+        <p >Based on your responses, it is <span class = "result">{{ result }}</span> that you have ADHD </p>
+    </div>
+</body>
+
+<style>
+
+    *{
+        font-family: sans-serif;
+    }
+
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 100vh;
+
+    }
+
+    .container{
+
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        border: 1px solid rgb(222, 222, 222);
+        width: 50vw;
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+
+    }
+
+    p{
+        font-size: 16px;
+    }
+
+    .result{
+        color: red;
+        font-weight: 600;
+    }
+
+</style>
+
+</html>
