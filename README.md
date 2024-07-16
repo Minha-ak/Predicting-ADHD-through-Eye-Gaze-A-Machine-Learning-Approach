@@ -1,6 +1,6 @@
 # Predicting-ADHD-through-Eye-Gaze:A-Machine-Learning-Approach
 
-This project aims to detect Attention-Deficit/Hyperactivity Disorder (ADHD) using a combination of a questionnaire-based decision tree algorithm and an eye movement tracking mechanism. The eye movement data is processed using OpenCV and plotted using Matplotlib, then analyzed with a Convolutional Neural Network (CNN) model. The final result is based on the combined outputs of both the questionnaire and eye tracking.
+This project aims to detect Attention-Deficit/Hyperactivity Disorder (ADHD) using a combination of a questionnaire-based decision tree algorithm and an eye gaze tracking mechanism. The eye gaze data is processed using OpenCV and plotted using Matplotlib, then analyzed with a Convolutional Neural Network (CNN) model. The final result is based on the combined outputs of both the questionnaire and eye gaze tracking.
 
 ## Table of Contents
 
