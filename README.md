@@ -57,7 +57,7 @@ This project demonstrates an innovative approach to ADHD detection by integratin
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/adhd-detection.git
+    git clone https://github.com/Minha-ak/Predicting-ADHD-through-Eye-Gaze-A-Machine-Learning-Approach.git
     cd adhd-detection
     ```
 
